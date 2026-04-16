@@ -1,20 +1,20 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"
 
 export default function Inspiration() {
-    const fadeInRight = {
+    const fadeInRight: Variants = {
         hidden: { opacity: 0, x: -50 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
     }
 
-    const fadeInLeft = {
+    const fadeInLeft: Variants = {
         hidden: { opacity: 0, x: 50 },
         visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut", delay: 0.2 } }
     }
 
-    const characterPop = {
+    const characterPop: Variants = {
         hidden: { opacity: 0, scale: 0.8, x: 20 },
         visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 1, delay: 0.5, ease: "backOut" } }
     }
