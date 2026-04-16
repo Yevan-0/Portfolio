@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className="select-none flex flex-col">
       <Welcome />
-      {/* <Inspiration /> */}
+      <Inspiration />
     </div>
   )
 }
