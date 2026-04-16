@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"; // Removed 'scale' from import
+import { motion } from "framer-motion";
 
 export default function Inspiration() {
     const fadeInRight = {
