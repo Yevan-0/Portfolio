@@ -36,6 +36,8 @@
   --color-strawberry: #D92353;
   --color-red: #D92344;
   --color-white: #ffffff;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px
 }
 
 @media (prefers-color-scheme: dark) {

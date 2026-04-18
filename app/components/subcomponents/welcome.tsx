@@ -61,8 +61,8 @@ export default function Welcome() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="flex items-center text-[64px] gap-2">
+    <div className="flex items-center justify-center min-h-screen overflow-hidden">
+      <div className="flex items-center text-[20px] text-2xl sm:text-3xl lg:text-6xl gap-1 md:gap-2">
         {
           Array.from({ length: COUNT }).map((_, i) => (
             <div
