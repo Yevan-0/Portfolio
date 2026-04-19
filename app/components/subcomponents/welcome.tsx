@@ -1,101 +1,104 @@
 'use client'
-import { useRef, useEffect } from "react"
+import { motion, useAnimation, Variants } from "framer-motion"
+import { useEffect, useState } from "react"
 
 const COUNT = 6;
 
-export default function Welcome() {
-  const leftRefs = useRef<HTMLDivElement[]>([]);
-  const rightRefs = useRef<HTMLDivElement[]>([]);
-  const mesgRef = useRef<HTMLDivElement>(null);
+export default function Welcom() {
+  const [scrolled, setScrolled] = useState(false);
+
+  const sideLeft: Variants = {
+    hidden: { opacity: 0, x: -120 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+  }
+
+  const sideRight: Variants = {
+    hidden: { opacity: 0, x: 120 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+  }
+
+  const scaleIn: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (COUNT - 1) * 0.1 + 0.5 } }
+  }
+
+  const staggerLeft: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1, staggerDirection: 1 } }
+  }
+
+  const staggerRight: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
+  }
+
+  const controls = useAnimation()
 
   useEffect(() => {
-    const animate = () => {
-      leftRefs.current.forEach(element => {
-        element.style.transition = 'none'
-        element.style.opacity = '0'
-        element.style.transform = 'translateX(-120px)'
-      });
-
-      rightRefs.current.forEach(element => {
-        element.style.transition = 'none'
-        element.style.opacity = '0'
-        element.style.transform = 'translateX(120px)'
-      });
-
-      if (mesgRef.current) {
-        mesgRef.current.style.transition = 'none'
-        mesgRef.current.style.opacity = '0'
-        mesgRef.current.style.transform = 'scale(0.8)'
-      };
-
-      setTimeout(() => {
-        leftRefs.current.forEach((element, i) => {
-          setTimeout(() => {
-            element.style.transition = 'all 0.5s cubic-bezier(0.22, 1, 0.36,1)'
-            element.style.opacity = '1'
-            element.style.transform = 'translateX(0)'
-          }, i * 100)
-        });
-
-        rightRefs.current.forEach((element, i) => {
-          const reverseIndex = (COUNT - 1) - i;
-          setTimeout(() => {
-            element.style.transition = 'all 0.5s cubic-bezier(0.22, 1, 0.36,1)'
-            element.style.opacity = '1'
-            element.style.transform = 'translateX(0)'
-          }, reverseIndex * 100)
-        });
-
-        setTimeout(() => {
-          if (mesgRef.current) {
-            mesgRef.current.style.transition = 'all 0.5s cubic-bezier(0.22, 1, 0.36,1)'
-            mesgRef.current.style.opacity = '1'
-            mesgRef.current.style.transform = 'scale(1)'
-          };
-        }, (COUNT * 100) + 100)
-      },)
+    const animate = async () => {
+      controls.set('hidden')
+      await controls.start('visible')
     }
+
     animate()
-    const id = setInterval(animate, 3500);
-    return () => clearInterval(id);
+    const id = setInterval(animate, 3500)
+    return () => clearInterval(id)
+  }, [controls])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <div className="flex items-center justify-center min-h-screen overflow-hidden">
-      <div className="flex items-center text-[20px] text-2xl sm:text-3xl lg:text-6xl gap-1 md:gap-2">
-        {
-          Array.from({ length: COUNT }).map((_, i) => (
-            <div
-              className="text-white"
-              key={i}
-              ref={(el) => {
-                if (el) {
-                  leftRefs.current[i] = el;
-                }
-              }}
-            >{'>'}
-            </div>
-          ))
-        }
-        <div ref={mesgRef}
-          className="text-white">WELCOME
-        </div>
-        {
-          Array.from({ length: COUNT }).map((_, i) => (
-            <div
-              className="text-white"
-              key={i}
-              ref={(el) => {
-                if (el) {
-                  rightRefs.current[i] = el;
-                }
-              }}
-            >{'<'}
-            </div>
-          ))
-        }
+    <div className="flex items-center justify-center min-h-screen overflow-hidden pointer-events-none">
+      <div className="flex items-center text-[20px] text-2xl sm:text-3xl lg:text-6xl gap-1 md:gap-2 font-hanson">
+        <motion.div
+          className="flex items-center gap-1 md:gap-2"
+          animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <motion.div
+            variants={staggerLeft}
+            animate={controls}
+            initial="hidden"
+            className="flex items-center gap-2"
+          >
+            {Array.from({ length: COUNT }).map((_, i) => (
+              <motion.div key={i} variants={sideLeft} className="text-white">
+                {'>'}
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={scaleIn}
+            animate={controls}
+            initial="hidden"
+            className="text-white gap-2"
+          >
+            WELCOME
+          </motion.div>
+
+          <motion.div
+            variants={staggerRight}
+            animate={controls}
+            initial="hidden"
+            className="flex items-center gap-2"
+          >
+            {Array.from({ length: COUNT }).map((_, i) => (
+              <motion.div key={i} variants={sideRight} className="text-white">
+                {'<'}
+              </motion.div>
+            ))}
+          </motion.div>
+
+        </motion.div>
       </div>
     </div>
   )
 }
-
