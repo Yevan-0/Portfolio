@@ -16,11 +16,14 @@ export default function Home() {
           backgroundPosition: 'center, center, center',
         }}
       />
-      <main className="min-h-screen">
+      <main className="min-h-screen flex flex-col gap-20 md:gap-50 overflow-x-hidden">
         <Navbar />
-        <Hero />
-        <br />
-        <About />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="about" className="scroll-mt-20">
+          <About />
+        </section>
       </main>
     </>
   );

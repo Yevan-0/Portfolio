@@ -4,34 +4,33 @@ import { useEffect, useState } from "react"
 
 const COUNT = 6;
 
+const sideLeft: Variants = {
+  hidden: { opacity: 0, x: -120 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+}
+
+const sideRight: Variants = {
+  hidden: { opacity: 0, x: 120 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+}
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (COUNT - 1) * 0.1 + 0.5 } }
+}
+
+const staggerLeft: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, staggerDirection: 1 } }
+}
+
+const staggerRight: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
+}
+
 export default function Welcom() {
   const [scrolled, setScrolled] = useState(false);
-
-  const sideLeft: Variants = {
-    hidden: { opacity: 0, x: -120 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
-  }
-
-  const sideRight: Variants = {
-    hidden: { opacity: 0, x: 120 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
-  }
-
-  const scaleIn: Variants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (COUNT - 1) * 0.1 + 0.5 } }
-  }
-
-  const staggerLeft: Variants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1, staggerDirection: 1 } }
-  }
-
-  const staggerRight: Variants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
-  }
-
   const controls = useAnimation()
 
   useEffect(() => {

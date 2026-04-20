@@ -36,6 +36,7 @@
   --color-strawberry: #D92353;
   --color-red: #D92344;
   --color-white: #ffffff;
+  --color-orange:#FEB26F;
   --breakpoint-xs: 480px;
   --breakpoint-sm: 640px
 }
@@ -47,6 +48,27 @@
   }
 }
 
+@keyframes marquees {
+  0% {transform: translateX(0%);}
+  100% {transform: translateX(-50%);}
+}
+
+@keyframes marquees-reverse {
+  0% {transform: translateX(-50%);}
+  100% {transform: translateX(0%);}
+}
+
+.animation-marque {
+  animation: marquees 25s linear infinite;
+}
+
+.animation-reverse {
+  animation: marquees-reverse 25s linear infinite;
+}
+
+html{
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--purple);

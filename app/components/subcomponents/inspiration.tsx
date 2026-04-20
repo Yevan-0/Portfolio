@@ -3,21 +3,22 @@
 import Image from "next/image"
 import { motion, Variants } from "framer-motion"
 
+const fadeInRight: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+}
+
+const fadeInLeft: Variants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut", delay: 0.2 } }
+}
+
+const characterPop: Variants = {
+  hidden: { opacity: 0, scale: 0.8, x: 20 },
+  visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 1, delay: 0.5, ease: "backOut" } }
+}
+
 export default function Inspiration() {
-  const fadeInRight: Variants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  }
-
-  const fadeInLeft: Variants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut", delay: 0.2 } }
-  }
-
-  const characterPop: Variants = {
-    hidden: { opacity: 0, scale: 0.8, x: 20 },
-    visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 1, delay: 0.5, ease: "backOut" } }
-  }
 
   return (
     <div className="w-full overflow-x-clip">
@@ -28,7 +29,7 @@ export default function Inspiration() {
         variants={{}}
       >
         <div className="flex flex-col xl:flex-row w-full min-h-[220px] xl:min-h-[320px] items-stretch relative overflow-hidden xl:overflow-visible pointer-events-none">
-          
+
           {/* Left black panel */}
           <div className="filter drop-shadow-[4px_4px_6px_rgba(0,0,0,0.8)] xl:flex-[0.6] h-full z-10">
             <motion.div variants={fadeInRight} className="h-full transform-gpu">
