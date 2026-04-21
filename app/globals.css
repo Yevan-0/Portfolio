@@ -66,6 +66,18 @@
   animation: marquees-reverse 25s linear infinite;
 }
 
+@keyframes slide {
+  0% {transform: translateX(-50%);}
+  100% {transform: translateX(0%);}
+}
+
+.animation-slide{
+  animation: slide 25s linear infinite;
+}
+.animation-slide:hover {
+  animation-play-state: paused;
+}
+
 html{
   scroll-behavior: smooth;
 }

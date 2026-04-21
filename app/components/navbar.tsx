@@ -4,7 +4,7 @@ import { useState } from 'react'
 const links = [
     {
         label: "HOME",
-        href: "#home"
+        href: "#"
     },
     {
         label: "ABOUT ME",
@@ -12,7 +12,7 @@ const links = [
     },
     {
         label: "TECHNOLOGIES & SKILLS",
-        href: "#technologeis-&-skills"
+        href: "#technologies-&-skills"
     },
     {
         label: "GIT HUB",

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import About from "./components/about";
+import Tech_n_Skills from "./components/tech-n-skills";
 
 export default function Home() {
   return (
@@ -36,6 +37,9 @@ export default function Home() {
         </section>
         <section id="about" className="scroll-mt-20">
           <About />
+        </section>
+        <section id="technologies-&-skills">
+          <Tech_n_Skills />
         </section>
       </main>
     </>
