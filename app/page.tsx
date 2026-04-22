@@ -16,7 +16,7 @@ let projects: Project[] = [];
         console.error('FAILED TO READ:', err);
     }
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <div className="fixed inset-0 -z-10">
@@ -36,7 +36,7 @@ export default function Home() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/dust.png')",
+            backgroundImage: "url('/images/Dust.png')",
             backgroundSize: "200px 200px",
             backgroundRepeat: "repeat",
           }}
