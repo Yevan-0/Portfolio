@@ -19,7 +19,6 @@ const characterPop: Variants = {
 }
 
 export default function Inspiration() {
-
   return (
     <div className="w-full overflow-x-clip">
       <motion.div
@@ -97,7 +96,6 @@ export default function Inspiration() {
                 loading="eager"
               />
             </motion.div>
-
           </div>
         </div>
       </motion.div>

@@ -25,7 +25,6 @@
   font-display: swap;
 }
 
-
 @theme {
   --font-hanson: 'Hanson', sans-serif;
   --font-monument: 'Monument Extended', sans-serif;
@@ -36,7 +35,7 @@
   --color-strawberry: #D92353;
   --color-red: #D92344;
   --color-white: #ffffff;
-  --color-orange:#FEB26F;
+  --color-orange: #FEB26F;
   --breakpoint-xs: 480px;
   --breakpoint-sm: 640px
 }
@@ -49,13 +48,23 @@
 }
 
 @keyframes marquees {
-  0% {transform: translateX(0%);}
-  100% {transform: translateX(-50%);}
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquees-reverse {
-  0% {transform: translateX(-50%);}
-  100% {transform: translateX(0%);}
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .animation-marque {
@@ -67,18 +76,24 @@
 }
 
 @keyframes slide {
-  0% {transform: translateX(-50%);}
-  100% {transform: translateX(0%);}
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-.animation-slide{
+.animation-slide {
   animation: slide 25s linear infinite;
 }
+
 .animation-slide:hover {
   animation-play-state: paused;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 

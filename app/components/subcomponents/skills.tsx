@@ -43,12 +43,9 @@ export default function Skills() {
                                     className="flex items-center justify-center border border-white rounded-full tracking tracking-wide text-center py-2 px-3 w-60  bg-white text-purple uppercase">{skill}</div>
                             ))}
                         </div>
-
                     </div>
                 ))}
-
             </div>
-
         </div>
     )
 }

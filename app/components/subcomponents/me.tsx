@@ -26,7 +26,6 @@ export default function Me() {
                         breaking layouts, and putting them back together.
                     </div>
                 </div>
-
             </div>
         </div>
     )

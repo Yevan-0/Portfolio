@@ -12,7 +12,6 @@ const fadeUp: Variants = {
 
 export default function About() {
     return (
-
         <div className="flex flex-col md:gap-15 overflow-hidden select-none">
             <div className="overflow-hidden w-full">
                 <motion.div
@@ -24,7 +23,6 @@ export default function About() {
                 >
                     <Banner />
                 </motion.div>
-
             </div>
             <motion.div
                 variants={fadeUp}

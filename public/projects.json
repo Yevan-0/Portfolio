@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Highway Rush",
+        "description": "A browser-based endless  driving game.  Dodge trafficusing your keyboard or by tilting your phone.",
+        "image": "/public/image/project-1.png",
+        "url": "https://github.com/Yevan-0/react-assignments/blob/main/src/assignments/Assignment_42.jsx"
+    },
+    {
+        "title": "Face Filter",
+        "description": "Built using face-api.js — a JavaScript wrapper over {TensorFlow.js} — with SSD MobileNet for face detection and a 68-point facial landmark model to calculate head rotation across X, Y, andZ axes for accurate filter placement.",
+        "image": "/public/image/project-2.png",
+        "url": "https://github.com/Yevan-0/react-assignments/blob/main/src/assignments/Assignment_45.jsx"
+
+    },
+    {
+        "title": "Web Scraper",
+        "description": "A multipurpose Node.js CLI tool that scrapes any webpage and exports the parsed data as a structured JSON file.",
+        "image":"/public/image/project-3.png",
+        "url": "https://github.com/Yevan-0/web-scraping"
+    },
+    {
+        "title": "Recipe Manager",
+        "description": "A Python CLI application to create, manage, and organise your personal recipe book — with persistent file storage and advanced search.",
+        "image":"/public/image/project-4.png",
+        "url": "https://github.com/Yevan-0/Recipe-Manager"
+    }
+]
