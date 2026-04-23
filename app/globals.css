@@ -37,36 +37,33 @@
   --color-white: #ffffff;
   --color-orange: #FEB26F;
   --breakpoint-xs: 480px;
-  --breakpoint-sm: 640px
+  --breakpoint-sm: 640px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #3B2559;
-    --foreground: #ededed;
-  }
+.panels-row {
+  flex-direction: column;
 }
 
 .panels-desktop-only {
-    display: none;
+  display: none;
 }
 
 .panels-mobile-only {
-    display: flex;
+  display: flex;
 }
 
 @media (min-width: 1100px) {
-    .panels-row {
-        flex-direction: row;
-    }
+  .panels-row {
+    flex-direction: row;
+  }
 
-    .panels-desktop-only {
-        display: flex !important;
-    }
+  .panels-desktop-only {
+    display: flex !important;
+  }
 
-    .panels-mobile-only {
-        display: none !important;
-    }
+  .panels-mobile-only {
+    display: none !important;
+  }
 }
 
 @keyframes marquees {
@@ -120,7 +117,7 @@ html {
 }
 
 body {
-  background: var(--purple);
-  color: var(--white);
-  font-family: 'Hanson', 'Monument Extended', Poppins, sans-serif;
+  background-color: #3B2559;
+  color: #ffffff;
+  font-family: 'Hanson', 'Monument Extended', 'Poppins', sans-serif;
 }
