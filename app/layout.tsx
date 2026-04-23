@@ -4,10 +4,10 @@ import "./globals.css";
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight:['400', '700']
+  weight: ['400', '700']
 })
 
-export const metadata ={
+export const metadata = {
   title: "Portfolio | Yevan",
 }
 
