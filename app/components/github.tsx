@@ -2,19 +2,14 @@ import Image from "next/image";
 import Profile from "./subcomponents/profile"
 import Graph from "./subcomponents/graph"
 import FadeUp from "./subcomponents/fadeup";
-const getData = async () => {
-  const base = process.env.NEXT_PUBLIC_BASE_URL;
+import { getGitHub, getContribution } from "@/lib/github"
 
-  const [profile, contributions] = await Promise.all([
-    fetch(`${base}/api/github`, { next: { revalidate: 3600 } }).then((r) => r.json()),
-    fetch(`${base}/api/github/contributions`, { next: { revalidate: 3600 } }).then((r) => r.json())
-  ])
-  return { profile, contributions }
-}
 
 export default async function GitHub() {
-  const { profile, contributions } = await getData();
-
+  const [profile, contributions] = await Promise.all([
+    getGitHub(),
+    getContribution(),
+  ]);
   return (
     <div className="flex flex-col gap-10 md:gap-15 overflow-hidden select-none justify-center items-center filter drop-shadow-gray-950 ">
       <FadeUp>

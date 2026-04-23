@@ -1,5 +1,3 @@
-import { NextResponse } from "next/server";
-
 const USERNAME = process.env.GITHUB_USERNAME!;
 const TOKEN = process.env.GITHUB_TOKEN;
 const headers = {
@@ -7,7 +5,7 @@ const headers = {
   Accept: 'application/vnd.github+json'
 }
 
-export async function GET() {
+export async function getGitHub() {
   const [userResp, repoRes] = await Promise.all([
     fetch(`https://api.github.com/users/${USERNAME}`, { headers, next: { revalidate: 3600 } }),
     fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=pushed`, { headers, next: { revalidate: 3600 } })
@@ -16,7 +14,7 @@ export async function GET() {
   const user = await userResp.json();
   const repos = await repoRes.json();
 
-  return NextResponse.json({
+  return {
     name: user.name,
     login: user.login,
     avatar: user.avatar_url,
@@ -34,5 +32,40 @@ export async function GET() {
         forks: r.forks_count,
         language: r.language,
       })),
+  }
+}
+
+
+export async function getContribution() {
+  const res = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `query GetStats($login: String!){
+        user(login: $login){
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                      weeks {
+                         contributionDays {
+                          date
+                          contributionCount
+                          weekday
+                          }
+                        }
+                      }
+                    }
+                  }
+                }`,
+      variables: { login: process.env.GITHUB_USERNAME }
+    }),
+    next: { revalidate: 3600 }
   })
+
+  const queryData = await res.json();
+  return queryData.data.user.contributionsCollection.contributionCalendar
+
 }
