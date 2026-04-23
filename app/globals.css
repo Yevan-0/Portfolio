@@ -47,6 +47,28 @@
   }
 }
 
+.panels-desktop-only {
+    display: none;
+}
+
+.panels-mobile-only {
+    display: flex;
+}
+
+@media (min-width: 1100px) {
+    .panels-row {
+        flex-direction: row;
+    }
+
+    .panels-desktop-only {
+        display: flex !important;
+    }
+
+    .panels-mobile-only {
+        display: none !important;
+    }
+}
+
 @keyframes marquees {
   0% {
     transform: translateX(0%);

@@ -2,5 +2,6 @@ export interface Project {
     title: string,
     description: string,
     image: string,
-    url:string
+    repo:string,
+    live?: string
 }
