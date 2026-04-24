@@ -7,6 +7,7 @@ import About from "./components/about";
 import Tech_n_Skills from "./components/tech-n-skills";
 import Projects from "./components/projects";
 import GitHub from "./components/github";
+import Footer from "./components/Footer";
 
 let projects: Project[] = [];
 try {
@@ -58,6 +59,9 @@ export default async function Home() {
         </section>
         <section id="github">
           <GitHub />
+        </section>
+        <section id="contact">
+          <Footer />
         </section>
       </main>
     </>

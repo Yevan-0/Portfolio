@@ -28,8 +28,6 @@ export default function Inspiration() {
         variants={{}}
       >
         <div className="flex flex-col xl:flex-row w-full min-h-[220px] xl:min-h-[320px] items-stretch relative overflow-hidden xl:overflow-visible pointer-events-none">
-
-          {/* Left black panel */}
           <div className="filter drop-shadow-[4px_4px_6px_rgba(0,0,0,0.8)] xl:flex-[0.6] h-full z-10">
             <motion.div variants={fadeInRight} className="h-full transform-gpu">
               <div className="bg-black p-3 xl:p-6 w-full h-full xl:[clip-path:polygon(0%_0%,_85%_0%,_100%_100%,_0%_100%)] flex flex-col gap-7 items-center xl:items-start">
@@ -46,8 +44,6 @@ export default function Inspiration() {
               </div>
             </motion.div>
           </div>
-
-          {/* Right strawberry panel */}
           <div className="flex xl:flex-[0.4] items-stretch xl:-ml-[12%] relative">
             <div className="filter drop-shadow-[4px_4px_6px_rgba(0,0,0,0.5)] flex-1">
               <motion.div variants={fadeInLeft} className="h-full transform-gpu">
@@ -81,8 +77,6 @@ export default function Inspiration() {
                 </div>
               </motion.div>
             </div>
-
-            {/* Character image */}
             <motion.div
               variants={characterPop}
               className="absolute right-0 bottom-0 z-50 pointer-events-none"

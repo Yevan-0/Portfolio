@@ -1,38 +1,12 @@
 'use client'
 import { useState } from 'react'
-
-const links = [
-  {
-    label: "HOME",
-    href: "#"
-  },
-  {
-    label: "ABOUT ME",
-    href: "#about"
-  },
-  {
-    label: "TECHNOLOGIES & SKILLS",
-    href: "#technologies-&-skills"
-  },
-  {
-    label: "PROJECTS",
-    href: "#projects"
-  },
-  {
-    label: "GIT HUB",
-    href: "#github"
-  },
-  {
-    label: "CONTACT ME",
-    href: "#contact"
-  }
-]
+import links from '@/lib/nav.json';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className='fixed w-full top-5 z-100 md:bg-strawberry select-none'>
+    <nav className='fixed w-full top-5 z-90 md:bg-strawberry select-none'>
       <div className='w-full flex justify-end items-center pr-8'>
         <button
           className='md:hidden text-white flex flex-col gap-1.5 p-2'
