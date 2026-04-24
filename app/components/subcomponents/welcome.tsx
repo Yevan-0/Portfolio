@@ -3,6 +3,7 @@ import { motion, useAnimation, Variants } from "framer-motion"
 import { useEffect, useState } from "react"
 
 const COUNT = 6;
+const MOBILE_COUNT = 3;
 
 const sideLeft: Variants = {
   hidden: { opacity: 0, x: -120 },
@@ -29,9 +30,19 @@ const staggerRight: Variants = {
   visible: { transition: { staggerChildren: 0.1, staggerDirection: -1 } }
 }
 
-export default function Welcom() {
+export default function Welcome() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const controls = useAnimation()
+
+  const count = isMobile ? MOBILE_COUNT : COUNT;
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const animate = async () => {
@@ -55,7 +66,7 @@ export default function Welcom() {
 
   return (
     <div className="flex items-center justify-center min-h-screen overflow-hidden pointer-events-none">
-      <div className="flex items-center text-[32px] lg:text-6xl gap-1 md:gap-2 font-hanson">
+      <div className="flex items-center text-2xl sm:text-5xl lg:text-6xl gap-1 md:gap-2 font-hanson">
         <motion.div
           className="flex items-center gap-1 md:gap-2"
           animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0 }}
@@ -67,7 +78,7 @@ export default function Welcom() {
             initial="hidden"
             className="flex items-center gap-2"
           >
-            {Array.from({ length: COUNT }).map((_, i) => (
+            {Array.from({ length: count }).map((_, i) => (
               <motion.div key={i} variants={sideLeft} className="text-white">
                 {'>'}
               </motion.div>
@@ -89,7 +100,7 @@ export default function Welcom() {
             initial="hidden"
             className="flex items-center gap-2"
           >
-            {Array.from({ length: COUNT }).map((_, i) => (
+            {Array.from({ length: count }).map((_, i) => (
               <motion.div key={i} variants={sideRight} className="text-white">
                 {'<'}
               </motion.div>
