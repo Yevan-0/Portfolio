@@ -55,7 +55,7 @@ export default function Welcom() {
 
   return (
     <div className="flex items-center justify-center min-h-screen overflow-hidden pointer-events-none">
-      <div className="flex items-center text-[20px] text-2xl sm:text-3xl lg:text-6xl gap-1 md:gap-2 font-hanson">
+      <div className="flex items-center text-[32px] lg:text-6xl gap-1 md:gap-2 font-hanson">
         <motion.div
           className="flex items-center gap-1 md:gap-2"
           animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0 }}
