@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Pannels({ projects }: { projects: Project[] }) {
   return (
-    <div className='flex flex-col gap-10 items-center justify-center'>
+    <div className='flex flex-col gap-10 items-center justify-center flex-wrap'>
       <div className='panels-row flex max-width-1110:flex-col gap-10'>
         {projects.map((proj, i) => (
           <div key={i} className='flex flex-col items-center'>

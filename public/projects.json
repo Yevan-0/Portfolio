@@ -1,29 +1,35 @@
 [
-    {
-        "title": "Highway Rush",
-        "description": "A browser-based endless  driving game.  Dodge trafficusing your keyboard or by tilting your phone.",
-        "image": "/public/image/project-1.png",
-        "repo": "https://github.com/Yevan-0/react-assignments/blob/main/src/assignments/Assignment_42.jsx",
-        "live": "https://yevan-0.github.io/react-assignments/dist/#/ASG-42"
-    },
-    {
-        "title": "Face Filter",
-        "description": "Built using face-api.js — a JavaScript wrapper over {TensorFlow.js} — with SSD MobileNet for face detection and a 68-point facial landmark model to calculate head rotation across X, Y, andZ axes for accurate filter placement.",
-        "image": "/public/image/project-2.png",
-        "repo": "https://github.com/Yevan-0/react-assignments/blob/main/src/assignments/Assignment_45.jsx",
-        "live": "https://yevan-0.github.io/react-assignments/dist/#/ASG-45"
-
-    },
-    {
-        "title": "Web Scraper",
-        "description": "A multipurpose Node.js CLI tool that scrapes any webpage and exports the parsed data as a structured JSON file.",
-        "image":"/public/image/project-3.png",
-        "repo": "https://github.com/Yevan-0/web-scraping"
-    },
-    {
-        "title": "Recipe Manager",
-        "description": "A Python CLI application to create, manage, and organise your personal recipe book — with persistent file storage and advanced search.",
-        "image":"/public/image/project-4.png",
-        "repo": "https://github.com/Yevan-0/Recipe-Manager"
-    }
+  {
+    "title": "Highway Rush",
+    "description": "A browser-based endless  driving game.  Dodge trafficusing your keyboard or by tilting your phone.",
+    "image": "/public/image/Project-1.png",
+    "repo": "https://github.com/Yevan-0/react-assignments/blob/main/src/assignments/Assignment_42.jsx",
+    "live": "https://yevan-0.github.io/react-assignments/dist/#/ASG-42"
+  },
+  {
+    "title": "Face Filter",
+    "description": "Built using face-api.js — a JavaScript wrapper over {TensorFlow.js} — with SSD MobileNet for face detection and a 68-point facial landmark model to calculate head rotation across X, Y, and Z axes for accurate filter placement.",
+    "image": "/public/image/Project-2.png",
+    "repo": "https://github.com/Yevan-0/react-assignments/blob/main/src/assignments/Assignment_45.jsx",
+    "live": "https://yevan-0.github.io/react-assignments/dist/#/ASG-45"
+  },
+  {
+    "title": "Web Scraper",
+    "description": "A multipurpose Node.js CLI tool that scrapes any webpage and exports the parsed data as a structured JSON file.",
+    "image": "/public/image/Project-3.png",
+    "repo": "https://github.com/Yevan-0/web-scraping"
+  },
+  {
+    "title": "Recipe Manager",
+    "description": "A Python CLI application to create, manage, and organise your personal recipe book — with persistent file storage and advanced search.",
+    "image": "/public/image/Project-4.png",
+    "repo": "https://github.com/Yevan-0/Recipe-Manager"
+  },
+  {
+    "title": "Torii Game",
+    "description": "A 3D browser-based Japanese kana (alphabet) learning game. Run through stages, listen to pronunciations, and touch the correct kana characters built with React Three Fiber, Rapier physics, and Zustand, with character animations retargeted in Blender.",
+    "image": "/public/image/Project-5.png",
+    "repo": "https://github.com/Yevan-0/torii-game",
+    "live": "https://yevan-0.github.io/torii-game/"
+  }
 ]
